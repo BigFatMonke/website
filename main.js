@@ -5,17 +5,23 @@ if (toggle && links) {
   toggle.addEventListener('click', () => links.classList.toggle('open'));
 }
 
+// Google Translate Initialization
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+
 // Newsletter form
 function handleNewsletter(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button');
-  btn.textContent = '✓ Subscribed!';
-  btn.style.background = '#10b981';
+  btn.textContent = 'Subscribed!';
   form.querySelector('input').value = '';
   setTimeout(() => {
     btn.textContent = 'Subscribe';
-    btn.style.background = '';
   }, 3000);
 }
 
