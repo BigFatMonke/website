@@ -1,155 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>theUVproject.org | Home</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheUVProject — Protect The Game. Protect Yourself.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:        #FFFBF0;
+    --cream-warm:   #FFF6DC;
+    --cream-deep:   #F5EDCC;
+    --gold:         #D6A400;
+    --gold-hover:   #B88C00;
+    --gold-soft:    #E8C44A;
+    --navy:         #0F203D;
+    --navy-mid:     #1A3260;
+    --navy-light:   #243C6E;
+    --text-dark:    #0D1B33;
+    --text-mid:     #3A4A6B;
+    --text-muted:   #6B7A99;
+    --border:       #E6D8A8;
+    --shadow:       rgba(15,32,61,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 58px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--cream);
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold-soft); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,251,240,0.7);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-soft); }
+  .nav-links a.active { color: var(--cream); }
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy) !important;
+    background: var(--gold-soft);
+    padding: 7px 18px;
+    border-radius: 4px;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 88vh;
+    background: var(--cream);
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 6rem;
+    background: var(--cream);
+    position: relative;
+  }
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(52px, 6vw, 76px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-bottom: 0.15em;
+  }
+  .hero-headline .gold { color: var(--gold); }
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    max-width: 44ch;
+    margin: 1.8rem 0 2.5rem;
+  }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold-hover); }
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--navy); color: var(--cream); }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream-warm);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 3rem;
+  }
+  .uv-badge {
+    width: 110px; height: 110px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.06em;
+    box-shadow: 0 0 0 16px rgba(214,164,0,0.15), 0 0 0 32px rgba(214,164,0,0.07);
+    position: relative;
+  }
+  .stat-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 280px;
+  }
+  .stat-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+  }
+  .stat-number {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-mid);
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .hero-bg-text {
+    position: absolute;
+    bottom: -20px; right: -10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 180px;
+    font-weight: 700;
+    color: rgba(214,164,0,0.06);
+    letter-spacing: -0.04em;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* ─── BANNER ─── */
+  .alert-banner {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 1.1rem 6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .alert-banner .icon {
+    width: 36px; height: 36px;
+    background: rgba(232,196,74,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .alert-banner .icon svg { width: 18px; height: 18px; fill: var(--gold-soft); }
+  .alert-banner p { font-size: 14px; line-height: 1.6; }
+  .alert-banner strong { color: var(--gold-soft); }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 5rem 6rem; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(30px, 3.5vw, 44px);
+    font-weight: 700;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
+  }
+  .section-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-mid);
+    max-width: 62ch;
+  }
+
+  /* ─── WHY WE STARTED ─── */
+  .origin {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .origin-photo {
+    background: var(--cream-deep);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--text-muted);
+  }
+  .origin-photo svg { width: 40px; height: 40px; opacity: 0.4; }
+  .origin-photo span { font-size: 13px; letter-spacing: 0.04em; }
+  .origin-quote {
+    margin-top: 2rem;
+    padding: 1.4rem 1.6rem;
+    border-left: 3px solid var(--gold);
+    background: var(--cream-warm);
+    border-radius: 0 8px 8px 0;
+  }
+  .origin-quote p {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+  .origin-quote cite {
+    display: block;
+    margin-top: 0.7rem;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* ─── THE DANGER ─── */
+  .danger {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 5rem 6rem;
+  }
+  .danger .section-label { color: var(--gold-soft); }
+  .danger .section-title { color: var(--cream); }
+  .danger-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .danger-card {
+    background: rgba(255,251,240,0.05);
+    border: 1px solid rgba(232,196,74,0.2);
+    border-radius: 10px;
+    padding: 1.8rem;
+  }
+  .danger-card .big-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold-soft);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .danger-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.7rem;
+  }
+  .danger-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,251,240,0.65);
+  }
+  .danger-cta-row {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-hover); }
+  .danger-cta-row p { font-size: 14px; color: rgba(255,251,240,0.55); max-width: 44ch; }
+
+  /* ─── WHAT WE DO ─── */
+  .whatwedo { background: var(--cream-warm); }
+  .whatwedo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .do-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  .do-card-icon {
+    width: 46px; height: 46px;
+    background: rgba(214,164,0,0.12);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+  .do-card-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .do-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    margin-bottom: 0.7rem;
+  }
+  .do-card p { font-size: 14px; line-height: 1.75; color: var(--text-mid); }
+
+  /* ─── SPORTS ─── */
+  .sports { background: var(--cream); }
+  .sports-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .sports-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+  .sports-tag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 4px;
+    background: var(--cream-deep);
+    border: 1px solid var(--border);
+    color: var(--text-mid);
+  }
+  .sports-tag.featured {
+    background: rgba(214,164,0,0.15);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+  .sports-impact {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 2.5rem;
+    color: var(--cream);
+  }
+  .sports-impact h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .impact-row {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,251,240,0.1);
+    align-items: center;
+  }
+  .impact-row:last-child { border-bottom: none; }
+  .impact-row .num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-soft);
+    min-width: 80px;
+  }
+  .impact-row .desc { font-size: 14px; color: rgba(255,251,240,0.7); line-height: 1.6; }
+
+  /* ─── GET INVOLVED ─── */
+  .involve { background: var(--cream-deep); }
+  .involve-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .involve-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .involve-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-dark);
+  }
+  .involve-card p { font-size: 14px; line-height: 1.7; color: var(--text-mid); }
+  .involve-card .card-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-hover);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    align-self: flex-start;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .involve-card .card-link:hover { border-color: var(--gold); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 4rem 6rem 2.5rem;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,251,240,0.1);
+  }
+  .footer-brand .logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .footer-brand .logo span { color: var(--gold-soft); }
+  .footer-brand p { font-size: 13px; line-height: 1.75; color: rgba(255,251,240,0.55); max-width: 30ch; }
+  .footer-col h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 1rem;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,251,240,0.6);
+    text-decoration: none;
+    margin-bottom: 0.55rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--cream); }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    font-size: 12px;
+    color: rgba(255,251,240,0.35);
+  }
+  .footer-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .footer-btn:hover { background: var(--gold-hover); }
+
+  @media (max-width: 900px) {
+    .hero, .origin, .danger-grid, .whatwedo-grid, .sports-inner, .involve-grid, .footer-top {
+      grid-template-columns: 1fr;
+    }
+    section, .danger, footer { padding: 3rem 2rem; }
+    nav { padding: 0 1.5rem; }
+    .hero-left { padding: 3rem 2rem; }
+  }
+</style>
 </head>
 <body>
 
-  <div id="google_translate_element"></div>
-
-  <nav class="nav">
-    <div class="nav-left">
-      <a href="/" class="nav-logo">the<span>UV</span>project.org</a>
-      <span class="nav-page-label">Home</span>
-    </div>
-    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
-    <ul class="nav-links">
-      <li><a href="/" class="active">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/services">What We Do</a></li>
-      <li><a href="/contact">Contact Us</a></li>
-      <li class="lang-selector-container">
-        <select id="custom_lang_selector" class="custom-lang-select">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="zh-CN">中文</option>
-        </select>
-      </li>
-    </ul>
-  </nav>
-  
-  <!-- HERO -->
-  <section class="hero">
-    <div class="uv-bar"></div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">Youth-Powered · UV Education · Sun Safety</p>
-      <h1 class="hero-headline">PROTECT<br><span class="outline">THE GAME.</span><br>PROTECT<br><span class="orange">YOURSELF.</span></h1>
-      <p class="hero-sub">theUVproject is closing the UV education gap for high school and college athletes — one community at a time.</p>
-      <div class="hero-ctas">
-        <a href="services.html" class="btn btn-primary">See What We Do</a>
-        <a href="contact.html" class="btn btn-ghost">Get Involved</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="sun-ring ring-1"></div>
-      <div class="sun-ring ring-2"></div>
-      <div class="sun-ring ring-3"></div>
-      <div class="sun-core">UV</div>
-    </div>
-  </section>
-
-  <!-- UV STAT BAR -->
-  <div class="stat-bar">
-    <div class="stat-item"><span class="stat-num">1 in 5</span><span class="stat-label">Americans develops skin cancer</span></div>
-    <div class="stat-divider">|</div>
-    <div class="stat-item"><span class="stat-num">90%</span><span class="stat-label">of cases are preventable</span></div>
-    <div class="stat-divider">|</div>
-    <div class="stat-item"><span class="stat-num">$0</span><span class="stat-label">cost to students we serve</span></div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">The<span>UV</span>Project<span>.org</span></div>
+  <div class="nav-links">
+    <a href="#" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#whatwedo">What We Do</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#donate" class="nav-cta">Donate</a>
   </div>
+</nav>
 
-  <!-- TEASER ABOUT -->
-  <section class="section section-light teaser-about">
-    <div class="container two-col">
-      <div class="teaser-text">
-        <p class="section-eyebrow">Who We Are</p>
-        <h2>Athletes Don't Think About Sunscreen. <span class="orange">We're Changing That.</span></h2>
-        <p>theUVproject was built by young people who saw a gap — outdoor athletes spending hours in peak UV with zero sun protection culture. We're not a PSA. We're a movement that meets athletes where they are: on the field, on the court, in the moment.</p>
-        <p>We believe sun safety shouldn't feel medical. It should feel normal — the same way a helmet or cleats do.</p>
-        <a href="about.html" class="link-arrow">Our story &rarr;</a>
-      </div>
-      <div class="teaser-img-block">
-        <div class="img-placeholder about-placeholder">
-          <div class="placeholder-icon"></div>
-          <p>Our Team</p>
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Youth-Powered · UV Education · Sun Safety</p>
+    <h1 class="hero-headline">
+      Protect<br>
+      The Game.<br>
+      Protect<br>
+      <span class="gold">Yourself.</span>
+    </h1>
+    <p class="hero-sub">
+      TheUVProject is closing the sun safety gap for high school and college athletes — starting on the tennis court, expanding to every sport, one team at a time.
+    </p>
+    <div class="hero-buttons">
+      <a href="#whatwedo" class="btn-primary">See What We Do</a>
+      <a href="#donate" class="btn-outline">Get Involved</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="uv-badge">UV</div>
+      <div class="stat-stack">
+        <div class="stat-card">
+          <div class="stat-number">1 in 5</div>
+          <div class="stat-label">Americans develop skin cancer by age 70</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Of cases are caused by UV exposure</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Preventable with proper sunscreen use</div>
         </div>
       </div>
     </div>
-  </section>
+    <div class="hero-bg-text">UV</div>
+  </div>
+</section>
 
-  <!-- DIAGONAL DIVIDER -->
-  <div class="diagonal-divider"></div>
+<!-- ALERT BANNER -->
+<div class="alert-banner">
+  <div class="icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 5v6m0 2v2"/></svg>
+  </div>
+  <p><strong>Did you know?</strong> Outdoor athletes are exposed to up to <strong>3× more UV radiation</strong> than the average person — yet most never apply sunscreen before competing.</p>
+</div>
 
-  <!-- TEASER PROGRAMS -->
-  <section class="section section-alt">
-    <div class="container">
-      <p class="section-eyebrow">What We Do</p>
-      <h2 class="section-title">Three Ways We Make <span class="orange">Impact</span></h2>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon"></div>
-          <h3>Education</h3>
-          <p>Modern, accessible UV health resources built for athletes — not textbooks. Workshops, digital content, and real talk about skin safety.</p>
-          <a href="services.html" class="link-arrow">Learn more &rarr;</a>
-        </div>
-        <div class="card">
-          <div class="card-icon"></div>
-          <h3>Distribution</h3>
-          <p>We put high-quality sunscreen directly into the hands of outdoor youth sports and recreation communities. Free, always.</p>
-          <a href="services.html" class="link-arrow">Learn more &rarr;</a>
-        </div>
-        <div class="card">
-          <div class="card-icon"></div>
-          <h3>Chapters</h3>
-          <p>Students can launch a local chapter and expand the UV movement in their own school or community. Youth-led, nationwide growth.</p>
-          <a href="contact.html" class="link-arrow">Start a chapter &rarr;</a>
-        </div>
+<!-- WHY WE STARTED -->
+<section class="origin" id="about">
+  <div>
+    <p class="section-label">Our Story</p>
+    <h2 class="section-title">Why We<br>Started</h2>
+    <p class="section-body">
+      It started on the tennis court. As a competitive player, I noticed something that should have been obvious: nobody was wearing sunscreen. We'd spend hours in direct sun — serving, rallying, grinding through matches — completely exposed. No SPF. No shade. No second thought.
+    </p>
+    <p class="section-body" style="margin-top:1rem">
+      When I started learning about skin cancer, I was stunned. Melanoma is the deadliest form, and UV exposure is the number one cause. Athletes — the very people who spend the most time outdoors — are among the least protected. Not because they don't care. Because nobody ever told them they needed to.
+    </p>
+    <p class="section-body" style="margin-top:1rem">
+      TheUVProject exists to change that. We donate sunscreen directly to sports teams and educate athletes on why sun protection isn't optional — it's part of the game.
+    </p>
+    <div class="origin-quote">
+      <p>"I used to think sunscreen was for beach days. Then I realized I was training 15 hours a week in direct sunlight — with zero protection. That's when everything clicked."</p>
+      <cite>— TheUVProject Founder</cite>
+    </div>
+  </div>
+  <div class="origin-photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/>
+    </svg>
+    <span>Founder Photo</span>
+  </div>
+</section>
+
+<!-- THE DANGER -->
+<section class="danger" id="danger" style="padding:5rem 6rem">
+  <p class="section-label">The Hard Truth</p>
+  <h2 class="section-title">Skin Cancer Is<br>Serious. Don't Ignore It.</h2>
+  <p style="font-size:16px; line-height:1.8; color:rgba(255,251,240,0.7); max-width:64ch; margin-top:0.5rem">
+    This isn't about getting a bad sunburn. Unprotected UV exposure builds up over years — and the damage is permanent. For athletes who train outdoors daily, the risk compounds fast. Here's what the data actually says:
+  </p>
+  <div class="danger-grid">
+    <div class="danger-card">
+      <div class="big-num">97,000+</div>
+      <h3>New melanoma cases per year</h3>
+      <p>Melanoma is the most dangerous form of skin cancer. Caught late, it spreads rapidly to lymph nodes and organs — and survival rates drop sharply.</p>
+    </div>
+    <div class="danger-card">
+      <div class="big-num">10×</div>
+      <h3>Higher risk for outdoor athletes</h3>
+      <p>Studies show competitive outdoor athletes accumulate UV damage at rates far exceeding the general population — starting as early as high school.</p>
+    </div>
+    <div class="danger-card">
+      <div class="big-num">SPF 30</div>
+      <h3>Blocks 97% of UV rays</h3>
+      <p>A single daily application of SPF 30 sunscreen can reduce your risk dramatically. It costs almost nothing. The cost of not using it can be your life.</p>
+    </div>
+  </div>
+  <div class="danger-cta-row">
+    <a href="#whatwedo" class="btn-gold">Learn How We're Fighting Back</a>
+    <p>We're not trying to scare you. We're trying to protect you — because the risk is real, and it's avoidable.</p>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="whatwedo" id="whatwedo">
+  <p class="section-label">Our Mission</p>
+  <h2 class="section-title">What We Do</h2>
+  <p class="section-body">We combine direct action with education. Every team we reach gets sunscreen in their hands — and the knowledge to use it for life.</p>
+  <div class="whatwedo-grid">
+    <div class="do-card">
+      <div class="do-card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </div>
+      <h3>Sunscreen Donations</h3>
+      <p>We supply SPF 30+ sunscreen directly to high school and college sports teams. Every player gets protection — no cost, no excuses, no missed games due to heat and sun exhaustion.</p>
+    </div>
+    <div class="do-card">
+      <div class="do-card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+      </div>
+      <h3>Athlete Education</h3>
+      <p>We partner with coaches and athletic directors to bring sun safety into pre-game routines. We teach athletes not just what SPF means — but why it matters for their long-term health.</p>
+    </div>
+    <div class="do-card">
+      <div class="do-card-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Community Awareness</h3>
+      <p>Sun safety isn't just for athletes. We run campus and community campaigns to spread the message that SPF is a daily habit — not just a beach day afterthought.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS WE SERVE -->
+<section class="sports">
+  <div class="sports-inner">
+    <div>
+      <p class="section-label">Who We Reach</p>
+      <h2 class="section-title">Every Sport.<br>Every Season.</h2>
+      <p class="section-body">
+        We started with tennis — the sport that first showed us the problem. But sun exposure doesn't care what sport you play. We donate to any outdoor team that needs us.
+      </p>
+      <div class="sports-tags">
+        <span class="sports-tag featured">Tennis</span>
+        <span class="sports-tag">Soccer</span>
+        <span class="sports-tag">Track & Field</span>
+        <span class="sports-tag">Baseball</span>
+        <span class="sports-tag">Softball</span>
+        <span class="sports-tag">Lacrosse</span>
+        <span class="sports-tag">Cross Country</span>
+        <span class="sports-tag">Golf</span>
+        <span class="sports-tag">Swimming</span>
+        <span class="sports-tag">Field Hockey</span>
+        <span class="sports-tag">+ More</span>
+      </div>
+      <p style="margin-top:1.5rem; font-size:14px; color:var(--text-muted)">
+        Don't see your sport? <a href="#contact" style="color:var(--gold-hover); font-weight:600">Reach out</a> — if your team competes outdoors, we want to help.
+      </p>
+    </div>
+    <div class="sports-impact">
+      <h3>Our Impact So Far</h3>
+      <div class="impact-row">
+        <div class="num">12+</div>
+        <div class="desc">Sports teams reached with sunscreen donations</div>
+      </div>
+      <div class="impact-row">
+        <div class="num">300+</div>
+        <div class="desc">Student athletes protected and educated</div>
+      </div>
+      <div class="impact-row">
+        <div class="num">5</div>
+        <div class="desc">Schools and programs partnered with</div>
+      </div>
+      <div class="impact-row">
+        <div class="num">100%</div>
+        <div class="desc">Youth-led and volunteer-driven</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA BAND -->
-  <section class="cta-band">
-    <div class="container cta-band-inner">
-      <h2>Ready to Join the Movement?</h2>
-      <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+<!-- GET INVOLVED -->
+<section class="involve" id="donate">
+  <p class="section-label">Take Action</p>
+  <h2 class="section-title">Get Involved</h2>
+  <p class="section-body">Whether you're an athlete, coach, parent, or just someone who cares — there's a place for you in this mission.</p>
+  <div class="involve-grid">
+    <div class="involve-card">
+      <h3>Donate</h3>
+      <p>Every dollar goes directly toward purchasing and distributing sunscreen to student athletes. No overhead. No fluff. Just SPF in athletes' hands.</p>
+      <a href="#" class="card-link">Make a Donation →</a>
     </div>
-  </section>
+    <div class="involve-card">
+      <h3>Request Sunscreen for Your Team</h3>
+      <p>Coach or athletic director? Submit a request and we'll get sunscreen to your team — free of charge, no strings attached.</p>
+      <a href="#contact" class="card-link">Request a Donation →</a>
+    </div>
+    <div class="involve-card">
+      <h3>Spread the Word</h3>
+      <p>Follow us on social media, share our mission, and help us reach more teams. Awareness is the first step toward change.</p>
+      <a href="#" class="card-link">Follow @TheUVProject →</a>
+    </div>
+    <div class="involve-card">
+      <h3>Partner With Us</h3>
+      <p>Are you a brand, school, or organization aligned with our mission? Let's work together to protect more athletes from preventable sun damage.</p>
+      <a href="#contact" class="card-link">Get in Touch →</a>
+    </div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-newsletter">
-        <p class="footer-label">Stay in the Loop</p>
-        <p class="footer-sub">UV news, chapter updates, and drops — straight to your inbox.</p>
-        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-          <input type="email" placeholder="your@email.com" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-      <div class="footer-social">
-        <p class="footer-label">Find Us</p>
-        <a href="https://instagram.com/theuvproject" target="_blank" class="social-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          @theuvproject
-        </a>
-        <a href="https://tiktok.com/@theuvproject" target="_blank" class="social-link">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.87a8.18 8.18 0 004.78 1.52V6.95a4.85 4.85 0 01-1.01-.26z"/></svg>
-          @theuvproject
-        </a>
-      </div>
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">The<span>UV</span>Project<span>.org</span></div>
+      <p>Youth-powered. Mission-driven. Protecting athletes from the sun — one team at a time.</p>
+      <br>
+      <a href="#donate" class="footer-btn">Support Our Mission</a>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 theUVproject. All rights reserved.</p>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#whatwedo">What We Do</a>
+      <a href="#contact">Contact Us</a>
     </div>
-  </footer>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <a href="#donate">Donate</a>
+      <a href="#donate">Request Sunscreen</a>
+      <a href="#">Partner With Us</a>
+      <a href="#">Volunteer</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Twitter / X</a>
+      <a href="#">Email Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 TheUVProject.org · All rights reserved</span>
+    <span>Made by student athletes, for student athletes.</span>
+  </div>
+</footer>
 
-  <script src="main.js"></script>
 </body>
 </html>
