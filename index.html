@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>theUVproject — Protect. Normalize. Move.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">the<span>UV</span>project</a>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">What We Do</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="uv-bar"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Youth-Powered · UV Education · Sun Safety</p>
+      <h1 class="hero-headline">PROTECT<br><span class="outline">THE GAME.</span><br>PROTECT<br><span class="orange">YOURSELF.</span></h1>
+      <p class="hero-sub">theUVproject is closing the UV education gap for high school and college athletes — one community at a time.</p>
+      <div class="hero-ctas">
+        <a href="services.html" class="btn btn-primary">See What We Do</a>
+        <a href="contact.html" class="btn btn-ghost">Get Involved</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="sun-ring ring-1"></div>
+      <div class="sun-ring ring-2"></div>
+      <div class="sun-ring ring-3"></div>
+      <div class="sun-core">UV</div>
+    </div>
+  </section>
+
+  <!-- UV STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-item"><span class="stat-num">1 in 5</span><span class="stat-label">Americans develops skin cancer</span></div>
+    <div class="stat-divider">|</div>
+    <div class="stat-item"><span class="stat-num">90%</span><span class="stat-label">of cases are preventable</span></div>
+    <div class="stat-divider">|</div>
+    <div class="stat-item"><span class="stat-num">$0</span><span class="stat-label">cost to students we serve</span></div>
+  </div>
+
+  <!-- TEASER ABOUT -->
+  <section class="section section-light teaser-about">
+    <div class="container two-col">
+      <div class="teaser-text">
+        <p class="section-eyebrow">Who We Are</p>
+        <h2>Athletes Don't Think About Sunscreen. <span class="orange">We're Changing That.</span></h2>
+        <p>theUVproject was built by young people who saw a gap — outdoor athletes spending hours in peak UV with zero sun protection culture. We're not a PSA. We're a movement that meets athletes where they are: on the field, on the court, in the moment.</p>
+        <p>We believe sun safety shouldn't feel medical. It should feel normal — the same way a helmet or cleats do.</p>
+        <a href="about.html" class="link-arrow">Our story &rarr;</a>
+      </div>
+      <div class="teaser-img-block">
+        <div class="img-placeholder about-placeholder">
+          <div class="placeholder-icon">☀️</div>
+          <p>Our Team</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIAGONAL DIVIDER -->
+  <div class="diagonal-divider"></div>
+
+  <!-- TEASER PROGRAMS -->
+  <section class="section section-dark">
+    <div class="container">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Three Ways We Make <span class="orange">Impact</span></h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>Education</h3>
+          <p>Modern, accessible UV health resources built for athletes — not textbooks. Workshops, digital content, and real talk about skin safety.</p>
+          <a href="services.html" class="link-arrow">Learn more &rarr;</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧴</div>
+          <h3>Distribution</h3>
+          <p>We put high-quality sunscreen directly into the hands of outdoor youth sports and recreation communities. Free, always.</p>
+          <a href="services.html" class="link-arrow">Learn more &rarr;</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌍</div>
+          <h3>Chapters</h3>
+          <p>Students can launch a local chapter and expand the UV movement in their own school or community. Youth-led, nationwide growth.</p>
+          <a href="contact.html" class="link-arrow">Start a chapter &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container cta-band-inner">
+      <h2>Ready to Join the Movement?</h2>
+      <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-newsletter">
+        <p class="footer-label">Stay in the Loop</p>
+        <p class="footer-sub">UV news, chapter updates, and drops — straight to your inbox.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-social">
+        <p class="footer-label">Find Us</p>
+        <a href="https://instagram.com/theuvproject" target="_blank" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @theuvproject
+        </a>
+        <a href="https://tiktok.com/@theuvproject" target="_blank" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.87a8.18 8.18 0 004.78 1.52V6.95a4.85 4.85 0 01-1.01-.26z"/></svg>
+          @theuvproject
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 theUVproject. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
