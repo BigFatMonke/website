@@ -5,27 +5,42 @@ if (toggle && links) {
   toggle.addEventListener('click', () => links.classList.toggle('open'));
 }
 
-// Google Translate Initialization
+// Google Translate Framework Initializer
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({
     pageLanguage: 'en',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    // Keeps layouts fully un-styled so we use our own custom CSS
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
   }, 'google_translate_element');
 }
 
-// Newsletter form
+// Hook up Custom Premium UI Language Selector
+document.addEventListener('DOMContentLoaded', () => {
+  const customSelect = document.getElementById('custom_lang_selector');
+  if (customSelect) {
+    customSelect.addEventListener('change', (e) => {
+      const lang = e.target.value;
+      const googleCombo = document.querySelector('.goog-te-combo');
+      if (googleCombo) {
+        googleCombo.value = lang;
+        googleCombo.dispatchEvent(new Event('change'));
+      }
+    });
+  }
+});
+
+// Newsletter form handling
 function handleNewsletter(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button');
   btn.textContent = 'Subscribed!';
   form.querySelector('input').value = '';
-  setTimeout(() => {
-    btn.textContent = 'Subscribe';
-  }, 3000);
+  setTimeout(() => { btn.textContent = 'Subscribe'; }, 3000);
 }
 
-// Contact form
+// Contact Form handling
 function handleContact(e) {
   e.preventDefault();
   const success = document.getElementById('form-success');
@@ -39,20 +54,3 @@ function handleContact(e) {
     e.target.reset();
   }, 1000);
 }
-
-// Scroll-in animation for cards and sections
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(el => {
-    if (el.isIntersecting) {
-      el.target.style.opacity = '1';
-      el.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.card, .value-card, .stat-block, .audience-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
