@@ -126,10 +126,18 @@ a { text-decoration: none; color: inherit; }
   background: rgba(255, 255, 255, 0.15);
   border-color: var(--yellow);
 }
-/* Completely hide ugly layout items injected by standard Google translate widget */
+
+/* CRITICAL: Nukes the Google Translate elements and prevents body shift */
 #google_translate_element { display: none !important; }
-body { top: 0 !important; }
-.skiptranslate, .goog-te-banner-frame { display: none !important; visibility: hidden !important; }
+body { top: 0 !important; position: static !important; }
+.skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { 
+  display: none !important; 
+  visibility: hidden !important; 
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
 
 /* ---- HERO ---- */
 .hero {
