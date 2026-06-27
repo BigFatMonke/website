@@ -11,6 +11,8 @@
 </head>
 <body>
 
+  <div id="google_translate_element"></div>
+
   <nav class="nav">
     <div class="nav-left">
       <a href="/" class="nav-logo">the<span>UV</span>project.org</a>
@@ -22,7 +24,14 @@
       <li><a href="/about">About</a></li>
       <li><a href="/services">What We Do</a></li>
       <li><a href="/contact" class="active">Contact Us</a></li>
-      <li id="google_translate_element"></li>
+      <li class="lang-selector-container">
+        <select id="custom_lang_selector" class="custom-lang-select">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="zh-CN">中文</option>
+        </select>
+      </li>
     </ul>
   </nav>
 
