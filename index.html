@@ -174,6 +174,8 @@
     gap: 2.5rem;
     padding: 3rem;
   }
+
+  /* PULSATING EFFECT LOGIC */
   .uv-badge {
     width: 110px; height: 110px;
     background: var(--gold);
@@ -184,9 +186,17 @@
     font-weight: 700;
     color: var(--navy);
     letter-spacing: 0.06em;
-    box-shadow: 0 0 0 16px rgba(214,164,0,0.15), 0 0 0 32px rgba(214,164,0,0.07);
     position: relative;
+    z-index: 2;
+    animation: pulse-glow 2s infinite ease-in-out;
   }
+
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0px rgba(214,164,0,0.4), 0 0 0 0px rgba(214,164,0,0.2); }
+    70% { box-shadow: 0 0 0 18px rgba(214,164,0,0.15), 0 0 0 36px rgba(214,164,0,0); }
+    100% { box-shadow: 0 0 0 0px rgba(214,164,0,0), 0 0 0 0px rgba(214,164,0,0); }
+  }
+
   .stat-stack {
     display: flex;
     flex-direction: column;
@@ -214,17 +224,6 @@
     letter-spacing: 0.04em;
     margin-top: 4px;
     text-transform: uppercase;
-  }
-  .hero-bg-text {
-    position: absolute;
-    bottom: -20px; right: -10px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 180px;
-    font-weight: 700;
-    color: rgba(214,164,0,0.06);
-    letter-spacing: -0.04em;
-    user-select: none;
-    pointer-events: none;
   }
 
   /* ─── BANNER ─── */
@@ -382,7 +381,7 @@
   .btn-gold:hover { background: var(--gold-hover); }
   .danger-cta-row p { font-size: 14px; color: rgba(255,251,240,0.55); max-width: 44ch; }
 
-  /* ─── WHAT WE DO ─── */
+  /* ─── WHAT WE DO (NEW MODEL) ─── */
   .whatwedo { background: var(--cream-warm); }
   .whatwedo-grid {
     display: grid;
@@ -543,7 +542,11 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--gold-soft);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    /* Added Yellow Line Underneath Footer Headers */
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 6px;
+    display: inline-block;
   }
   .footer-col a {
     display: block;
@@ -589,19 +592,17 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">The<span>UV</span>Project<span>.org</span></div>
   <div class="nav-links">
     <a href="#" class="active">Home</a>
     <a href="#about">About</a>
     <a href="#whatwedo">What We Do</a>
-    <a href="#contact">Contact Us</a>
-    <a href="#donate" class="nav-cta">Donate</a>
+    <a href="mailto:hello@theuvproject.org">Contact Us</a>
+    <a href="https://docs.google.com/forms/your-form-link-here" target="_blank" class="nav-cta">Start A Chapter</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" style="padding:0">
   <div class="hero-left">
     <p class="hero-eyebrow">Youth-Powered · UV Education · Sun Safety</p>
@@ -612,11 +613,11 @@
       <span class="gold">Yourself.</span>
     </h1>
     <p class="hero-sub">
-      TheUVProject is closing the sun safety gap for high school and college athletes — starting on the tennis court, expanding to every sport, one team at a time.
+      TheUVProject is closing the sun safety gap for high school and college athletes — powered by student-led chapters and local action.
     </p>
     <div class="hero-buttons">
       <a href="#whatwedo" class="btn-primary">See What We Do</a>
-      <a href="#donate" class="btn-outline">Get Involved</a>
+      <a href="https://docs.google.com/forms/your-form-link-here" target="_blank" class="btn-outline">Start a Chapter</a>
     </div>
   </div>
   <div class="hero-right">
@@ -637,11 +638,9 @@
         </div>
       </div>
     </div>
-    <div class="hero-bg-text">UV</div>
   </div>
 </section>
 
-<!-- ALERT BANNER -->
 <div class="alert-banner">
   <div class="icon">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 5v6m0 2v2"/></svg>
@@ -649,7 +648,6 @@
   <p><strong>Did you know?</strong> Outdoor athletes are exposed to up to <strong>3× more UV radiation</strong> than the average person — yet most never apply sunscreen before competing.</p>
 </div>
 
-<!-- WHY WE STARTED -->
 <section class="origin" id="about">
   <div>
     <p class="section-label">Our Story</p>
@@ -661,7 +659,7 @@
       When I started learning about skin cancer, I was stunned. Melanoma is the deadliest form, and UV exposure is the number one cause. Athletes — the very people who spend the most time outdoors — are among the least protected. Not because they don't care. Because nobody ever told them they needed to.
     </p>
     <p class="section-body" style="margin-top:1rem">
-      TheUVProject exists to change that. We donate sunscreen directly to sports teams and educate athletes on why sun protection isn't optional — it's part of the game.
+      TheUVProject exists to change that. We are a youth-led movement building local chapters to put sun safety tools directly into the hands of athletes.
     </p>
     <div class="origin-quote">
       <p>"I used to think sunscreen was for beach days. Then I realized I was training 15 hours a week in direct sunlight — with zero protection. That's when everything clicked."</p>
@@ -676,7 +674,6 @@
   </div>
 </section>
 
-<!-- THE DANGER -->
 <section class="danger" id="danger" style="padding:5rem 6rem">
   <p class="section-label">The Hard Truth</p>
   <h2 class="section-title">Skin Cancer Is<br>Serious. Don't Ignore It.</h2>
@@ -706,37 +703,35 @@
   </div>
 </section>
 
-<!-- WHAT WE DO -->
 <section class="whatwedo" id="whatwedo">
-  <p class="section-label">Our Mission</p>
-  <h2 class="section-title">What We Do</h2>
-  <p class="section-body">We combine direct action with education. Every team we reach gets sunscreen in their hands — and the knowledge to use it for life.</p>
+  <p class="section-label">Our Model</p>
+  <h2 class="section-title">Student-Led Action</h2>
+  <p class="section-body">We are building a national network of high school and college chapters. Here is how our student leaders drive local change.</p>
   <div class="whatwedo-grid">
     <div class="do-card">
       <div class="do-card-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </div>
-      <h3>Sunscreen Donations</h3>
-      <p>We supply SPF 30+ sunscreen directly to high school and college sports teams. Every player gets protection — no cost, no excuses, no missed games due to heat and sun exhaustion.</p>
+      <h3>Sun-Safe Packing Parties</h3>
+      <p>Chapters gather to assemble "Sun-Safe Packs" (SPF, lip balm, and UV stickers) and personally distribute them at local tennis matches, swim meets, and track fields.</p>
     </div>
     <div class="do-card">
       <div class="do-card-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
       </div>
-      <h3>Athlete Education</h3>
-      <p>We partner with coaches and athletic directors to bring sun safety into pre-game routines. We teach athletes not just what SPF means — but why it matters for their long-term health.</p>
+      <h3>Peer-to-Peer Education</h3>
+      <p>Students teaching students. Chapters lead quick, interactive workshops for health classes and sports teams to bust sun safety myths and teach the facts about UV radiation.</p>
     </div>
     <div class="do-card">
       <div class="do-card-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
-      <h3>Community Awareness</h3>
-      <p>Sun safety isn't just for athletes. We run campus and community campaigns to spread the message that SPF is a daily habit — not just a beach day afterthought.</p>
+      <h3>Campus Advocacy</h3>
+      <p>Many schools actually ban students from carrying sunscreen. Our chapters lobby school administrators to change these rules and install permanent public sunscreen dispensers.</p>
     </div>
   </div>
 </section>
 
-<!-- SPORTS WE SERVE -->
 <section class="sports">
   <div class="sports-inner">
     <div>
@@ -759,7 +754,7 @@
         <span class="sports-tag">+ More</span>
       </div>
       <p style="margin-top:1.5rem; font-size:14px; color:var(--text-muted)">
-        Don't see your sport? <a href="#contact" style="color:var(--gold-hover); font-weight:600">Reach out</a> — if your team competes outdoors, we want to help.
+        Don't see your sport? <a href="mailto:hello@theuvproject.org" style="color:var(--gold-hover); font-weight:600">Reach out</a> — if your team competes outdoors, we want to help.
       </p>
     </div>
     <div class="sports-impact">
@@ -784,64 +779,59 @@
   </div>
 </section>
 
-<!-- GET INVOLVED -->
 <section class="involve" id="donate">
   <p class="section-label">Take Action</p>
   <h2 class="section-title">Get Involved</h2>
-  <p class="section-body">Whether you're an athlete, coach, parent, or just someone who cares — there's a place for you in this mission.</p>
+  <p class="section-body">Whether you want to lead a chapter, partner with us, or fund a packing party, there is a place for you here.</p>
   <div class="involve-grid">
     <div class="involve-card">
-      <h3>Donate</h3>
-      <p>Every dollar goes directly toward purchasing and distributing sunscreen to student athletes. No overhead. No fluff. Just SPF in athletes' hands.</p>
-      <a href="#" class="card-link">Make a Donation →</a>
+      <h3>Start a Chapter</h3>
+      <p>Ready to lead? We will give you the complete toolkit to start a chapter, host packing parties, and change the culture at your school.</p>
+      <a href="https://docs.google.com/forms/your-form-link-here" target="_blank" class="card-link">Apply to Start a Chapter →</a>
     </div>
     <div class="involve-card">
-      <h3>Request Sunscreen for Your Team</h3>
-      <p>Coach or athletic director? Submit a request and we'll get sunscreen to your team — free of charge, no strings attached.</p>
-      <a href="#contact" class="card-link">Request a Donation →</a>
+      <h3>Request Sun-Safe Packs</h3>
+      <p>Are you a coach or athlete? Submit a request and our chapters will work to get Sun-Safe Packs distributed to your team.</p>
+      <a href="mailto:hello@theuvproject.org" class="card-link">Request a Donation →</a>
     </div>
     <div class="involve-card">
       <h3>Spread the Word</h3>
       <p>Follow us on social media, share our mission, and help us reach more teams. Awareness is the first step toward change.</p>
-      <a href="#" class="card-link">Follow @TheUVProject →</a>
+      <a href="https://instagram.com/your-instagram-handle" target="_blank" class="card-link">Follow @TheUVProject →</a>
     </div>
     <div class="involve-card">
       <h3>Partner With Us</h3>
-      <p>Are you a brand, school, or organization aligned with our mission? Let's work together to protect more athletes from preventable sun damage.</p>
-      <a href="#contact" class="card-link">Get in Touch →</a>
+      <p>Are you a sun-care brand, a dermatologist, or a school administrator? Let's work together to protect athletes from sun damage.</p>
+      <a href="mailto:hello@theuvproject.org" class="card-link">Get in Touch →</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer id="contact">
   <div class="footer-top">
     <div class="footer-brand">
       <div class="logo">The<span>UV</span>Project<span>.org</span></div>
       <p>Youth-powered. Mission-driven. Protecting athletes from the sun — one team at a time.</p>
       <br>
-      <a href="#donate" class="footer-btn">Support Our Mission</a>
+      <a href="https://docs.google.com/forms/your-form-link-here" target="_blank" class="footer-btn">Start A Chapter</a>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
       <a href="#">Home</a>
       <a href="#about">About</a>
       <a href="#whatwedo">What We Do</a>
-      <a href="#contact">Contact Us</a>
     </div>
     <div class="footer-col">
       <h4>Get Involved</h4>
-      <a href="#donate">Donate</a>
-      <a href="#donate">Request Sunscreen</a>
-      <a href="#">Partner With Us</a>
-      <a href="#">Volunteer</a>
+      <a href="https://docs.google.com/forms/your-form-link-here" target="_blank">Start A Chapter</a>
+      <a href="mailto:hello@theuvproject.org">Request Sunscreen</a>
+      <a href="mailto:hello@theuvproject.org">Partner With Us</a>
     </div>
     <div class="footer-col">
       <h4>Connect</h4>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <a href="#">Twitter / X</a>
-      <a href="#">Email Us</a>
+      <a href="https://instagram.com/your-instagram-handle" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@your-tiktok-handle" target="_blank">TikTok</a>
+      <a href="mailto:hello@theuvproject.org">Email Us</a>
     </div>
   </div>
   <div class="footer-bottom">
