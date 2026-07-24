@@ -62,7 +62,6 @@
       var(--sun) 0 26px,
       var(--sun-deep) 26px 30px
     );
-    clip-path: polygon(0 30%, 100% 0%, 100% 70%, 0% 100%);
   }
   .stripe.thin{height:8px;}
   .stripe.ink{
@@ -175,16 +174,14 @@
   .involved{padding:78px 0;}
   .involved h2{font-size:32px;color:var(--ink);text-align:center;margin-bottom:12px;}
   .involved .sub{text-align:center;color:var(--text-soft);max-width:52ch;margin:0 auto 48px;font-size:16px;}
-  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:760px;margin:0 auto;}
   .involve-card{
     background:var(--sun-tint);
     border-radius:var(--radius);
     padding:32px 28px;
     border:1px solid var(--sun-tint-line);
     display:flex;flex-direction:column;gap:14px;
-  }
-  .involve-card .num{
-    font-family:var(--mono);font-size:13px;font-weight:700;color:var(--sun-deep);letter-spacing:0.08em;
+    min-height:270px;
   }
   .involve-card h3{font-family:var(--body);font-weight:700;font-size:19px;color:var(--ink);}
   .involve-card p{font-size:14.5px;line-height:1.6;color:var(--text-soft);margin:0;flex:1;}
@@ -309,16 +306,16 @@
           <line x1="288" y1="166" x2="288" y2="192"/>
         </g>
         <circle cx="288" cy="118" r="44" fill="#FFB067"/>
-        <rect x="182" y="66" width="56" height="26" rx="7" fill="#182242"/>
-        <rect x="192" y="88" width="36" height="16" fill="#182242"/>
-        <path d="M150 108 h120 a18 18 0 0 1 18 18 v186 a18 18 0 0 1 -18 18 h-120 a18 18 0 0 1 -18 -18 v-186 a18 18 0 0 1 18 -18 z" fill="#FBF7F0" stroke="#182242" stroke-width="6"/>
-        <rect x="150" y="188" width="138" height="52" fill="#FF7A1A"/>
+        <rect x="173" y="66" width="56" height="26" rx="7" fill="#182242"/>
+        <rect x="183" y="88" width="36" height="16" fill="#182242"/>
+        <path d="M141 108 h120 a18 18 0 0 1 18 18 v186 a18 18 0 0 1 -18 18 h-120 a18 18 0 0 1 -18 -18 v-186 a18 18 0 0 1 18 -18 z" fill="#FBF7F0" stroke="#182242" stroke-width="6"/>
+        <rect x="141" y="188" width="138" height="52" fill="#FF7A1A"/>
         <g stroke="#e0630a" stroke-width="4" stroke-linecap="round">
-          <line x1="160" y1="198" x2="176" y2="230"/>
-          <line x1="186" y1="198" x2="202" y2="230"/>
-          <line x1="212" y1="198" x2="228" y2="230"/>
-          <line x1="238" y1="198" x2="254" y2="230"/>
-          <line x1="264" y1="198" x2="280" y2="230"/>
+          <line x1="151" y1="198" x2="167" y2="230"/>
+          <line x1="177" y1="198" x2="193" y2="230"/>
+          <line x1="203" y1="198" x2="219" y2="230"/>
+          <line x1="229" y1="198" x2="245" y2="230"/>
+          <line x1="255" y1="198" x2="271" y2="230"/>
         </g>
       </svg>
     </div>
@@ -378,22 +375,14 @@
   <div class="wrap">
     <div class="eyebrow" style="justify-content:center;">Get Involved</div>
     <h2>We're just getting started — build it with us.</h2>
-    <p class="sub">TheUVProject is a brand-new organization. Every chapter, partnership, and volunteer right now shapes what this becomes.</p>
+    <p class="sub">TheUVProject is a brand-new organization. Every chapter and partnership right now shapes what this becomes.</p>
     <div class="card-grid">
       <div class="involve-card">
-        <div class="num">01</div>
         <h3>Start a Chapter</h3>
         <p>Bring sun-safety education to your school or team. We'll give you the toolkit — you bring the team.</p>
         <a href="https://forms.gle/QwWm1bfNtrbjVypX6" target="_blank" rel="noopener" class="link">Start a chapter →</a>
       </div>
       <div class="involve-card">
-        <div class="num">02</div>
-        <h3>Support Our Mission</h3>
-        <p>Help us expand sun safety education for student athletes by supporting our outreach, events, and sunscreen distribution efforts.</p>
-        <a href="https://buy.stripe.com/test_00wcMX12n7VA1Vb8QO1VK00" target="_blank" rel="noopener" class="link">Donate Now →</a>
-      </div>
-      <div class="involve-card">
-        <div class="num">03</div>
         <h3>Partner With Us</h3>
         <p>Coaches, athletic trainers, dermatologists, and sun-care brands: help us reach athletes who need this most.</p>
         <a href="mailto:theuvproject.org@gmail.com" class="link">Partner with us →</a>
